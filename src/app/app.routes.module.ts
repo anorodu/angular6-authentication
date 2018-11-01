@@ -2,6 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {NgModule} from '@angular/core';
 import {MainComponent} from './main/main.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 // @ts-ignore
 const routes: Routes = [
@@ -10,8 +11,8 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'registration',
-    component: 'RegistrationComponent',
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
     path: '',

@@ -1,17 +1,2 @@
-<td-layout #layout>
-  <td-navigation-drawer title="Drawer" logo="" name="{{currentUser?.name}}">
-    <mat-nav-list>
-      <ng-template let-route let-last="last" ngFor
-                   [ngForOf]="navigationMenus">
-        <a mat-list-item [routerLink]="[route?.route]" (click)="layout.close()">
-          <mat-icon>{{route?.icon}}</mat-icon>
-          {{route.title}}</a>
-      </ng-template>
-      <a mat-list-item (click)="logout()">
-        <mat-icon>exit_to_app</mat-icon>
-        Sign out</a>
-    </mat-nav-list>
-  </td-navigation-drawer>
-  <router-outlet></router-outlet>
-</td-layout>
+<h1>Hi</h1>
 
