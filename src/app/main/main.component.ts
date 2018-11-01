@@ -6,11 +6,27 @@ import {Router} from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
+
 export class MainComponent implements OnInit {
-  constructor(private router: Router) {
+
+  routes: Object[] = [
+    {
+      title: 'Dashboard',
+      route: '/',
+      icon: 'dashboard'
+    }
+  ];
+
+  constructor(
+    // private identityService: IdentityService,
+    private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
+  logout(): void {
+    // this.identityService.logout();
+    this.router.navigate(['/login']);
+  }
 }

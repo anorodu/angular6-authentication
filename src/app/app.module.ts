@@ -1,11 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {LoginComponent} from './login/login.component';
+import {MainComponent} from './main/main.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AppRoutesModule} from './app.routes.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainComponent,
   ],
   imports: [
+    AppRoutesModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
