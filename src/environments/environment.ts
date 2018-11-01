@@ -2,8 +2,9 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+export const environment: {production: boolean, endpoint: string} = {
+  production: false,
+  endpoint: 'http://159.65.3.103:8080/assessment'
 };
 
 /*
