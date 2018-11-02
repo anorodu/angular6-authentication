@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit {
     // this.identityService.logout();
 
     // reset login status
-    this.authenticationService.logout();
+    // this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    this.redirectUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
+    // this.redirectUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
   }
 
   // register(): void {

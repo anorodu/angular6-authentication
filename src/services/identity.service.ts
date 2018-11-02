@@ -4,8 +4,10 @@ import {User} from '../shared/identity/model/user.interface';
 import {environment} from '../environments/environment';
 
 @Injectable({ providedIn: 'root'})
+
 export class IdentityService {
   constructor(private http: HttpClient){
+
   }
 
   getAll() {

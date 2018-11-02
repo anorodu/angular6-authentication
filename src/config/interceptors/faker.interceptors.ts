@@ -10,34 +10,41 @@ export class FakerInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const TEST_USER = {id: 1, username: 'test', password: 'test', firstName: 'John', lastName: 'Doe', token: 'fake-jwt-token'};
+    console.log('FakerInterceptor initialized.');
+    let testUser = {id: 1, username: 'test', password: 'test', firstName: 'John', lastName: 'Doe'};
     return of(null).pipe(mergeMap(() => {
 
-        if (request.url.endsWith('/oauth/token') && request.method === 'POST') {
-          if (request.body.username === TEST_USER.username && request.body.password === TEST_USER.password) {
-            let body = TEST_USER;
-            return of(new HttpResponse({status: 200, body}));
-          } else {
-            return throwError({error: {message: 'Username or password is incorrect'}});
-          }
+      if (request.url.endsWith('/oauth/token') && request.method === 'POST') {
+        if (request.body.username === testUser.username && request.body.password === testUser.password) {
+          // let body = testUser;
+          let body = {
+            id: testUser.id,
+            username: testUser.username,
+            firstName: testUser.firstName,
+            lastName: testUser.lastName,
+            token: 'fake-jwt-token'
+          };
+          return of(new HttpResponse({status: 200, body}));
+        } else {
+          return throwError({error: {message: 'Username or password is incorrect'}});
         }
+      }
 
-        if (request.url.endsWith('/users') && request.method === 'GET') {
-
-          if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-            return of(new HttpResponse({ status:200, body: [TEST_USER]}));
-          } else {
-            return throwError({error: {message: 'Unauthorised'}});
-          }
+      if (request.url.endsWith('/users') && request.method === 'GET') {
+        if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
+          return of(new HttpResponse({status: 200, body: [testUser]}));
+        } else {
+          return throwError({error: {message: 'Unauthorised'}});
         }
+      }
 
-        return next.handle(request);
+      return next.handle(request);
 
-      }))
+    }))
 
       .pipe(materialize())
       .pipe(delay(500))
-      .pipe(dematerialize())
+      .pipe(dematerialize());
   }
 }
 
