@@ -6,11 +6,5 @@ import {Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  constructor(private router: Router){}
-
-  ngOnInit(): void{
-    console.log('AppComponent ngOnInit!');
-    this.router.navigate(['login']);
-  }
+export class AppComponent {
 }

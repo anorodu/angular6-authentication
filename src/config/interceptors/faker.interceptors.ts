@@ -14,7 +14,7 @@ export class FakerInterceptor implements HttpInterceptor {
     let testUser = {id: 1, username: 'test', password: 'test', firstName: 'John', lastName: 'Doe'};
     return of(null).pipe(mergeMap(() => {
 
-      if (request.url.endsWith('/oauth/token') && request.method === 'POST') {
+      if (request.url.endsWith('/authentication') && request.method === 'POST') {
         if (request.body.username === testUser.username && request.body.password === testUser.password) {
           // let body = testUser;
           let body = {
@@ -26,6 +26,7 @@ export class FakerInterceptor implements HttpInterceptor {
           };
           return of(new HttpResponse({status: 200, body}));
         } else {
+          console.log('Error: incorrect username/password');
           return throwError({error: {message: 'Username or password is incorrect'}});
         }
       }

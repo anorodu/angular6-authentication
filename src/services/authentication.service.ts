@@ -12,6 +12,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     // return this.http.post<any>(environment.endpoint + AuthenticationService.AUTH_TOKEN, {username, password})
+    console.log("Authentication Service accessed.");
     return this.http.post<any>(environment.endpoint + AuthenticationService.AUTH_TOKEN, {username, password})
       .pipe(map(user => {
         if (user && user.token) {
