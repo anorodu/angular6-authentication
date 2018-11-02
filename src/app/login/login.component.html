@@ -9,27 +9,27 @@
           <mat-card-title></mat-card-title>
           <mat-card-subtitle>Please enter your login credential</mat-card-subtitle>
           <mat-divider></mat-divider>
-          <mat-card-content>
-            <form #loginForm="ngForm">
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <mat-card-content>
               <div>
                 <mat-form-field>
-                  <input matInput #userElement #userControl="ngModel" placeholder="Username" type="text" maxlength="30"
-                         name="username" [(ngModel)]="username" required>
+                  <input matInput placeholder="Username" type="text" formControlName="username"
+                         [ngClass]="{'is-invalid': submitted && f.username.errors}">
                 </mat-form-field>
               </div>
               <div>
                 <mat-form-field>
-                  <input matInput #passElement #passControl="ngModel" placeholder="Password" type="password"
-                         name="password" [(ngModel)]="password" required>
+                  <input matInput placeholder="Password" type="password" formControlName="password"
+                         [ngClass]="{'is-invalid': submitted && f.password.errors}">
                 </mat-form-field>
               </div>
-            </form>
-          </mat-card-content>
-          <mat-divider></mat-divider>
-          <mat-card-actions>
-            <button mat-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="login()">Login</button>
-            <span></span>
-          </mat-card-actions>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+              <button mat-raised-button color="accent" [disabled]="loading">Login</button>
+              <span></span>
+            </mat-card-actions>
+          </form>
         </mat-card>
       </div>
     </div>

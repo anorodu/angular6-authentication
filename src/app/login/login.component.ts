@@ -29,22 +29,24 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    // this.identityService.logout();
 
     // reset login status
-    // this.authenticationService.logout();
+    this.authenticationService.logout();
 
     // get return url from route parameters or default to '/'
-    // this.redirectUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
+    this.redirectUrl = this.route.snapshot.queryParams['redirectTo'] || '/';
   }
 
-  // register(): void {
-  //   this.router.navigate(['registration']);
-  // }
-
-  get f() {return this.loginForm.controls;}
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.loginForm.controls;
+  }
 
   login(): void {
+    console.log('login()');
+    console.log(this.f.username.value);
+    console.log(this.f.password.value);
+
     this.submitted = true;
 
     if (this.loginForm.invalid) {
@@ -76,13 +78,5 @@ export class LoginComponent implements OnInit {
     //     },
     //   ).toPromise();
   }
-
-  // navigateAfterSuccess(): void {
-  //   if (this.redirectUrl) {
-  //     this.router.navigateByUrl(this.redirectUrl);
-  //   } else {
-  //     this.router.navigate(['/']);
-  //   }
-  // }
 
 }
