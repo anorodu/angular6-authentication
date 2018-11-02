@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root'})
 export class AuthenticationService {
-  static AUTH_TOKEN = '/oauth/token';
+  static AUTH_TOKEN = 'oauth/token';
 
   constructor(private http: HttpClient) {
   }

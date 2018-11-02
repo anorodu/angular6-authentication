@@ -11,7 +11,7 @@ import {SharedModule} from './shared/shared.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from '../config/interceptors/jwt.interceptor';
 import {ErrorInterceptor} from '../config/interceptors/error.interceptor';
-import {FakerInterceptor} from '../config/interceptors/faker.interceptors';
+import {fakerInterceptor} from '../config/interceptors/faker.interceptors';
 import {AuthenticationService} from '../services/authentication.service';
 import {IdentityService} from '../services/identity.service';
 
@@ -32,9 +32,9 @@ import {IdentityService} from '../services/identity.service';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    FakerInterceptor,
     AuthenticationService,
     IdentityService,
+    fakerInterceptor,
   ],
   bootstrap: [AppComponent]
 })

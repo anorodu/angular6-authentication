@@ -4,7 +4,7 @@
 
 export const environment: {production: boolean, endpoint: string} = {
   production: false,
-  endpoint: 'http://159.65.3.103:8080/assessment'
+  endpoint: 'http://localhost:8080/'
 };
 
 /*
