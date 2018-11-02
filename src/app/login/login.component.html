@@ -1,24 +1,24 @@
-<div layout="column" layout-fill>
-  <mat-toolbar color="primary" class="mat-whiteframe-z1">
+<div>
+  <mat-toolbar color="primary">
     <span>Angular 6 Testing App</span>
   </mat-toolbar>
-  <div class="mat-content" layout-padding flex>
-    <div layout-gt-xs="row" layout-align-gt-xs="center start" class="margin">
-      <div flex-gt-xs="50">
-        <mat-card tdMediaToggle="gt-xs">
+  <div class="mat-content">
+    <div class="margin">
+      <div>
+        <mat-card>
           <mat-card-title></mat-card-title>
           <mat-card-subtitle>Please enter your login credential</mat-card-subtitle>
           <mat-divider></mat-divider>
           <mat-card-content>
             <form #loginForm="ngForm">
-              <div layout="row">
-                <mat-form-field flex>
+              <div>
+                <mat-form-field>
                   <input matInput #userElement #userControl="ngModel" placeholder="Username" type="text" maxlength="30"
                          name="username" [(ngModel)]="username" required>
                 </mat-form-field>
               </div>
-              <div layout="row">
-                <mat-form-field flex>
+              <div>
+                <mat-form-field>
                   <input matInput #passElement #passControl="ngModel" placeholder="Password" type="password"
                          name="password" [(ngModel)]="password" required>
                 </mat-form-field>
@@ -26,9 +26,9 @@
             </form>
           </mat-card-content>
           <mat-divider></mat-divider>
-          <mat-card-actions layout="row">
+          <mat-card-actions>
             <button mat-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="login()">Login</button>
-            <span flex></span>
+            <span></span>
           </mat-card-actions>
         </mat-card>
       </div>
